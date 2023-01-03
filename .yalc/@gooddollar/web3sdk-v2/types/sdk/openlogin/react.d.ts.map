@@ -1,0 +1,1 @@
+{"version":3,"file":"react.d.ts","sourceRoot":"","sources":["../../../src/sdk/openlogin/react.tsx"],"names":[],"mappings":";AAKA,OAAO,EAAoC,iBAAiB,EAAE,uBAAuB,EAAE,cAAc,EAAE,cAAc,EAAE,MAAM,SAAS,CAAC;AAGvI,eAAO,MAAM,gBAAgB,4CAG3B,CAAA;AAEF,eAAO,MAAM,iBAAiB,wFAY3B,uBAAuB,uBAmDzB,CAAA;AAED,eAAO,MAAM,YAAY,QAAO,cAO/B,CAAA;AAED,eAAO,MAAM,YAAY,QAAO,cAuB/B,CAAA"}
