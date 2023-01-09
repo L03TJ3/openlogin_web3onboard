@@ -1,98 +1,37 @@
-// ** blocknative update ** //
-import injectedModule from '@web3-onboard/injected-wallets'
-import walletConnectModule from '@web3-onboard/walletconnect'
 import { init } from '@web3-onboard/react'
-import coinbaseWalletModule from '@web3-onboard/coinbase'
-import web3authModule from '@web3-onboard/web3auth'
+
+// ! this local import is the newest implementation@2.2.0 !
+// import torus from './modules/torus'
+
 import LogoSmall from '../logosmall.png'
-import torusModule from '@web3-onboard/torus'
-import web3auth from './modules'
+import torusModule from '@web3-onboard/torus' // at 2.1.3 (3 months ago)
+
+// import web3auth from './modules'
 // ** blockNative update **//
 
-// ** blocknative update ** //
-const injectedBN = injectedModule({
-  filter: {
-      ['Binance Smart Wallet']: false,
-      ['MetaMask']: true,
-      ['Coinbase Wallet']: true,
-      ['detected']: true,
-      ['trust']: false,
-      ['opera']: false,
-      ['status']: false,
-      ['alphawallet']: false,
-      ['atoken']: false,
-      ['bitpie']: false,
-      ['blockwallet']: false,
-      ['Brave']: false,
-      ['dcent']: false,
-      ['frame']: false,
-      ['huobiwallet']: false,
-      ['hyperpay']: false,
-      ['imtoken']: false,
-      ['liquality']: false,
-      ['meetone']: false,
-      ['ownbit']: false,
-      ['mykey']: false,
-      ['tokenpocket']: false,
-      ['tp']: false,
-      ['xdefi']: false,
-      ['oneInch']: false,
-      ['tokenary']: false,
-      ['tally']: false,
-  },
-})
-
-const walletConnectBN = walletConnectModule({
-  bridge: 'https://bridge.walletconnect.org',
-  qrcodeModalOptions: {
-      mobileLinks: ['rainbow', 'metamask', 'argent', 'trust', 'imtoken', 'pillar'],
-  },
-  // connectFirstChainId: true,
-})
 
 const torus = torusModule()
 
-const coinbaseWalletSdk = coinbaseWalletModule()
-
-// const zenGoBN = zenGoModule({
-//   bridge: 'https://bridge.walletconnect.org',
-//   qrcodeModalOptions: {
-//       desktopLinks: ['zengo', 'metamask'],
-//       mobileLinks: ['metamask', 'zengo'], // TODO: has to be tested on IOS, android does not show list
-//   },
-// })
-
-const web3authBN = web3auth({
-  clientId: 'BBX9aGV3Skcmye75qbVDoJDYshOjJl9lZI76jLwcIEM54OBmxfo2sqM4Qlbhe0602E_lN8S4G_0YfQlvWyxWtzc',
-  modalConfig: {
-    // loginMethods: {
-    //   // label: 'Web3Auth',
-    // }
-  }
-})
-
 export const onboard = init({
-  wallets: [web3authBN, injectedBN, walletConnectBN, coinbaseWalletSdk, web3authBN, torus],
+  wallets: [torus],
   chains: [
       {
           id: '0xa4ec',
           token: 'CELO',
           label: 'Celo',
-          rpcUrl: process.env.REACT_APP_CELO_RPC ?? 'https://rpc.ankr.com/celo',
+          rpcUrl: 'https://rpc.ankr.com/celo',
       },
-      {
-          id: '0x1',
-          token: 'ETH',
-          label: 'Ethereum Mainnet',
-          rpcUrl:
-              process.env.REACT_APP_MAINNET_RPC ??
-              'https://eth-mainnet.alchemyapi.io/v2/2kSbx330Sc8S3QRwD9nutr9XST_DfeJh',
-      },
+      // {
+      //     id: '0x1',
+      //     token: 'ETH',
+      //     label: 'Ethereum Mainnet',
+      //     rpcUrl:'https://eth-mainnet.alchemyapi.io/v2/2kSbx330Sc8S3QRwD9nutr9XST_DfeJh',
+      // },
       {
           id: '0x7a',
           token: 'FUSE',
           label: 'Fuse Network',
-          rpcUrl: process.env.REACT_APP_FUSE_RPC ?? 'https://rpc.fuse.io',
+          rpcUrl: 'https://rpc.fuse.io',
       },
   ],
   appMetadata: {
