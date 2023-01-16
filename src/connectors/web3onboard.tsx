@@ -1,5 +1,6 @@
 import React, { useCallback} from 'react'
 import { useConnectWallet, useSetChain } from '@web3-onboard/react'
+import { onboard } from 'connectors'
 
 export function SwitchChain(): JSX.Element {
   const [{ chains, connectedChain, settingChain }, setChain] = useSetChain()
@@ -12,7 +13,9 @@ export function SwitchChain(): JSX.Element {
 }
 
 export function OnboardConnectButton(): JSX.Element {
+  const wallets = onboard.state.get().wallets
     //eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
     if (wallet) {
         return <SwitchChain />
