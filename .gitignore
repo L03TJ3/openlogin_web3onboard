@@ -7,7 +7,6 @@
 .yarn/cache
 .yarn/install-state.gz
 # .
-public
 tsconfig.json
 # src/
 
